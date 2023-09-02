@@ -58,6 +58,9 @@ export const logout =catchAsyncError(async(req,res,next)=>{
 
 res.status(200).cookie("token",null,{
     expires:new Date(Date.now()),
+    httpOnly : true, //to prevent the client from accessing it directly in the browser
+secure:true,
+sameSite : true,
 }).json({
     success:true,
     message:"logout successfully"
