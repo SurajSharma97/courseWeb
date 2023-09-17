@@ -60,7 +60,7 @@ res.status(200).cookie("token",null,{
     expires:new Date(Date.now()),
     httpOnly : true, //to prevent the client from accessing it directly in the browser
 secure:true,
-sameSite : true,
+sameSite : "none",
 }).json({
     success:true,
     message:"logout successfully"
@@ -74,6 +74,7 @@ export const getMyProfle =catchAsyncError(async(req,res,next)=>{
     success :true,
     user,
     })
+    console.log(`${user} is a genius`)
 
 });
 
